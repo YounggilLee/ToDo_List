@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 
 const initialStateTodo = {
     todoList: [],
-    toggle: false
+ //toggle: false
 }
 
 const todoReducer = (state = initialStateTodo, action ) => {
@@ -11,6 +11,7 @@ const todoReducer = (state = initialStateTodo, action ) => {
         case ADD_TODO:
             const copyState = {...state}
             const ids = copyState.todoList.map(todo => todo.id)
+            //console.log(ids);
             const maxId = ids.length > 0 ? Math.max(...ids) : 0
             copyState.todoList.push({ id: maxId + 1, todoName: action.payload})
             return copyState
